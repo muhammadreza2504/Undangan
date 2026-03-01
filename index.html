@@ -3,66 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Undangan Spesial</title>
+<title>Undangan Pernikahan Adat Jawa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 body{
     margin:0;
-    font-family: Arial, sans-serif;
+    padding:0;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(to bottom,#3e2723,#5d4037);
+    color:#f5e6c8;
     text-align:center;
-    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-    color:white;
 }
 
-.container{
-    padding:40px 20px;
+.cover{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle,#6d4c41,#3e2723);
 }
 
-h1{
-    font-size:35px;
+.cover h1{
+    font-family:'Playfair Display', serif;
+    font-size:38px;
+    margin:10px 0;
 }
 
-h2{
-    font-weight:normal;
+.cover button{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    background:gold;
+    color:black;
+    font-weight:bold;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.section{
+    padding:60px 20px;
+}
+
+.nama{
+    font-family:'Playfair Display', serif;
+    font-size:30px;
+    margin:10px 0;
+}
+
+.card{
+    background:rgba(0,0,0,0.3);
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+    max-width:400px;
 }
 
 .button{
     display:inline-block;
     padding:12px 25px;
-    margin-top:20px;
-    background:#ffd700;
+    background:gold;
     color:black;
     text-decoration:none;
-    border-radius:30px;
+    border-radius:25px;
+    margin-top:15px;
     font-weight:bold;
 }
 
 .countdown{
-    font-size:20px;
-    margin-top:20px;
+    margin-top:15px;
+    font-size:18px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h2>Undangan Acara</h2>
-    <h1>Nama Acara Kamu</h1>
-    <p>Kepada Yth:</p>
-    <h3>Tamu Undangan</h3>
+<div class="cover" id="cover">
+    <h3>Undangan Pernikahan</h3>
+    <h1>Rizky & Sinta</h1>
+    <p>Adat Jawa</p>
+    <button onclick="bukaUndangan()">Buka Undangan</button>
+</div>
 
-    <p>Hari/Tanggal: 20 Desember 2026</p>
-    <p>Lokasi: Kota Kamu</p>
+<div id="isi" style="display:none">
 
-    <div class="countdown" id="countdown"></div>
+<div class="section">
+    <p>Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
 
-    <a class="button" href="https://wa.me/6281234567890" target="_blank">
-        Konfirmasi Kehadiran
-    </a>
+    <div class="nama">Rizky Pratama</div>
+    <p>Putra dari Bpk. Ahmad & Ibu Siti</p>
+
+    <div class="nama">&</div>
+
+    <div class="nama">Sinta Maharani</div>
+    <p>Putri dari Bpk. Budi & Ibu Rina</p>
+
+    <div class="card">
+        <h3>Akad & Resepsi</h3>
+        <p>Minggu, 20 Desember 2026</p>
+        <p>Pukul 10.00 WIB</p>
+        <p>Gedung Serbaguna Kota Anda</p>
+
+        <div class="countdown" id="countdown"></div>
+
+        <a class="button" href="https://wa.me/6281234567890" target="_blank">
+            Konfirmasi Kehadiran
+        </a>
+    </div>
+
+    <p style="margin-top:40px">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+    <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+</div>
+
 </div>
 
 <script>
+function bukaUndangan(){
+    document.getElementById("cover").style.display="none";
+    document.getElementById("isi").style.display="block";
+}
+
 var countDownDate = new Date("Dec 20, 2026 10:00:00").getTime();
 
 var x = setInterval(function() {
@@ -74,7 +138,7 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
   document.getElementById("countdown").innerHTML =
-  "Acara dimulai dalam: " + days + " Hari " + hours + " Jam " + minutes + " Menit";
+  days + " Hari " + hours + " Jam " + minutes + " Menit lagi";
 
   if (distance < 0) {
     clearInterval(x);
@@ -82,6 +146,16 @@ var x = setInterval(function() {
   }
 }, 1000);
 </script>
+<audio id="musik" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+function bukaUndangan(){
+    document.getElementById("cover").style.display="none";
+    document.getElementById("isi").style.display="block";
+    document.getElementById("musik").play();
+}
+</script>
 </body>
 </html>
