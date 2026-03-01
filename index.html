@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Spesial</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+.container{
+    padding:40px 20px;
+}
+
+h1{
+    font-size:35px;
+}
+
+h2{
+    font-weight:normal;
+}
+
+.button{
+    display:inline-block;
+    padding:12px 25px;
+    margin-top:20px;
+    background:#ffd700;
+    color:black;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.countdown{
+    font-size:20px;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Undangan Acara</h2>
+    <h1>Nama Acara Kamu</h1>
+    <p>Kepada Yth:</p>
+    <h3>Tamu Undangan</h3>
+
+    <p>Hari/Tanggal: 20 Desember 2026</p>
+    <p>Lokasi: Kota Kamu</p>
+
+    <div class="countdown" id="countdown"></div>
+
+    <a class="button" href="https://wa.me/6281234567890" target="_blank">
+        Konfirmasi Kehadiran
+    </a>
+</div>
+
+<script>
+var countDownDate = new Date("Dec 20, 2026 10:00:00").getTime();
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+  document.getElementById("countdown").innerHTML =
+  "Acara dimulai dalam: " + days + " Hari " + hours + " Jam " + minutes + " Menit";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "Acara Sedang Berlangsung";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
